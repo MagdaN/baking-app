@@ -1,4 +1,4 @@
-package com.example.magda.bakingapp.data;
+package com.example.magda.bakingapp.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -50,4 +50,15 @@ public class Ingredient implements Parcelable {
         }
     };
 
+    public String getmMeasure() {
+        return mMeasure;
+    }
+
+    public Float getmQuantity() {
+        return mQuantity;
+    }
+
+    public String getmIngredient() {
+        return mIngredient;
+    }
 }

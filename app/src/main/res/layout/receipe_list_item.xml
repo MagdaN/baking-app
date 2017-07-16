@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/tile"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/receipe_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/hading_1"
+        tools:text="Cheesecake" />
+
+    <TextView
+        android:id="@+id/receipe_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/subtext"
+        tools:text="Graham Cracker crumbs | unsalted butter | melted, granulated sugar | salt | vanilla | Nutella or other chocolate-hazelnut spread | Mascapone Cheese(room temperature) | heavy cream(cold) | cream cheese(softened)" />
+
+</LinearLayout>

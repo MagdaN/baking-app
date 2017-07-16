@@ -1,4 +1,4 @@
-package com.example.magda.bakingapp.data;
+package com.example.magda.bakingapp.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,6 +7,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -69,6 +70,44 @@ public class Receipe implements Parcelable {
             return new Receipe[size];
         }
     };
+
+    public String getmName() {
+        return mName;
+    }
+
+    public int getmServings() {
+        return mServings;
+    }
+
+    public String getmImage() {
+        return mImage;
+    }
+
+    public List<Ingredient> getmIngredients() {
+        return mIngredients;
+    }
+
+    public List<Step> getmSteps() {
+        return mSteps;
+    }
+
+    public String ingredientsAsString() {
+        StringBuilder builder = new StringBuilder();
+
+        Iterator<Ingredient> ingredientIterator = mIngredients.iterator();
+
+        while(ingredientIterator.hasNext()){
+            Ingredient ingredient = ingredientIterator.next();
+            builder.append(ingredient.getmIngredient());
+            if(ingredientIterator.hasNext()){
+                builder.append(" | ");
+            }
+        }
+
+        return builder.toString();
+
+    }
+
 }
 
 

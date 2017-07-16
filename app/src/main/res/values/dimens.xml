@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hading_1">25sp</dimen>
+    <dimen name="subtext">16sp</dimen>
+    <dimen name="side_margins">10sp</dimen>
+    <dimen name="top_margins">10sp</dimen>
+    <dimen name="tile_padding">15sp</dimen>
+</resources>

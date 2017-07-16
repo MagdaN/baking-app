@@ -1,4 +1,4 @@
-package com.example.magda.bakingapp.data;
+package com.example.magda.bakingapp.models;
 
 
 import android.os.Parcel;

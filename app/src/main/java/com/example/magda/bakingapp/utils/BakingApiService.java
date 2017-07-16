@@ -1,9 +1,7 @@
 package com.example.magda.bakingapp.utils;
 
 
-import com.example.magda.bakingapp.data.Ingredient;
-import com.example.magda.bakingapp.data.Receipe;
-import com.example.magda.bakingapp.data.Step;
+import com.example.magda.bakingapp.models.Receipe;
 
 import java.util.List;
 
@@ -11,8 +9,6 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-
-import static android.R.attr.path;
 
 public interface BakingApiService {
 
