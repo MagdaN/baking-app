@@ -75,4 +75,8 @@ public class ReceipeAdapter extends RecyclerView.Adapter<ReceipeAdapter.ReceipeA
         notifyDataSetChanged();
     }
 
+    public ArrayList<Receipe> getValues() {
+        return mRecepies;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.magda.bakingapp;
 
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,7 +39,19 @@ public class MainActivity extends AppCompatActivity {
         mReceipeAdapter = new ReceipeAdapter(this);
         mRecyclerView.setAdapter(mReceipeAdapter);
 
-        new FetchRecipiesTask().execute();
+        if(savedInstanceState !=null) {
+            ArrayList<Receipe> current_recepeis = savedInstanceState.getParcelableArrayList("CURRENT_RECEPEIS");
+            mReceipeAdapter.setmRecepies(current_recepeis);
+        } else {
+
+            new FetchRecipiesTask().execute();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("CURRENT_RECEPEIS", mReceipeAdapter.getValues());
     }
 
 
@@ -46,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(List<Receipe> receipiesData) {
-            if(receipiesData != null) {
-                mReceipeAdapter.setmRecepies((ArrayList<Receipe>)receipiesData);
+            if (receipiesData != null) {
+                mReceipeAdapter.setmRecepies((ArrayList<Receipe>) receipiesData);
 
             }
         }
