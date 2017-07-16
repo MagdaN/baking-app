@@ -10,6 +10,7 @@
         android:id="@+id/receipe_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/hading_1_bottom_margin"
         android:textSize="@dimen/hading_1"
         tools:text="Cheesecake" />
 

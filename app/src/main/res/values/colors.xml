@@ -3,9 +3,10 @@
     <color name="colorPrimary">#e64a19</color>
     <color name="colorPrimaryDark">#ac0800</color>
     <color name="colorPrimaryLight">#ff7d47</color>
-    <color name="colorPrimaryTransparent">#30ff7d47</color>
+    <color name="colorPrimaryTransparent">#FFCCBC</color>
     <color name="colorSecondary">#512da8</color>
     <color name="colorSecondaryDark">#140078</color>
     <color name="colorSecondaryLight">#8559da</color>
     <color name="colorSecondaryTransparent">#508559da</color>
+    <color name="colorTextPrimary">#212121</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.magda.bakingapp.utils;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,8 +34,12 @@ public class ReceipeAdapter extends RecyclerView.Adapter<ReceipeAdapter.ReceipeA
 
         public ReceipeAdapterViewHolder(View view) {
             super(view);
+            Typeface typefaceName = Typeface.createFromAsset(mContext.getAssets(),"fonts/Slabo27px-Regular.ttf");
+            Typeface typefaceIngredients = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoCondensed-Regular.ttf");
             mReceipeName = (TextView) view.findViewById(R.id.receipe_name);
             mIngredients = (TextView) view.findViewById(R.id.receipe_ingredients);
+            mReceipeName.setTypeface(typefaceName);
+            mIngredients.setTypeface(typefaceIngredients);
         }
 
     }

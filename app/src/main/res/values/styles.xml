@@ -13,6 +13,7 @@
         <item name="android:layout_marginTop">@dimen/top_margins</item>
         <item name="android:background">@color/colorPrimaryTransparent</item>
         <item name="android:padding">@dimen/tile_padding</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
 </resources>
