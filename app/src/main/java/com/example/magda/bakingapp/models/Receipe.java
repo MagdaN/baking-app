@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.internal.ObjectConstructor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,11 +28,11 @@ public class Receipe implements Parcelable {
 
     @SerializedName("ingredients")
     @Expose
-    private List<Ingredient> mIngredients;
+    private ArrayList<Ingredient> mIngredients;
 
     @SerializedName("steps")
     @Expose
-    private List<Step> mSteps;
+    private ArrayList<Step> mSteps;
 
 
     @Override
@@ -44,8 +45,8 @@ public class Receipe implements Parcelable {
         dest.writeString(mName);
         dest.writeInt(mServings);
         dest.writeString(mImage);
-        dest.writeTypedList(mIngredients);
-        dest.writeTypedList(mSteps);
+        dest.writeList(mIngredients);
+        dest.writeList(mSteps);
     }
 
     private Receipe(Parcel in) {

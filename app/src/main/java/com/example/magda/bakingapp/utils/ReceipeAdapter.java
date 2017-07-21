@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.example.magda.bakingapp.R;
@@ -19,18 +20,18 @@ public class ReceipeAdapter extends RecyclerView.Adapter<ReceipeAdapter.ReceipeA
 
     private ArrayList<Receipe> mRecepies;
     private final Context mContext;
+    private final ReceipeAdapterOnClickHandler mClickHandler;
 
-    public ReceipeAdapter(Context context) {
+    public ReceipeAdapter(Context context, ReceipeAdapterOnClickHandler clickHandler) {
         mContext = context;
+        mClickHandler = clickHandler;
     }
 
 
-    public class ReceipeAdapterViewHolder extends RecyclerView.ViewHolder {
+    public class ReceipeAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TextView mReceipeName;
         public final TextView mIngredients;
-
-
 
         public ReceipeAdapterViewHolder(View view) {
             super(view);
@@ -40,8 +41,16 @@ public class ReceipeAdapter extends RecyclerView.Adapter<ReceipeAdapter.ReceipeA
             mIngredients = (TextView) view.findViewById(R.id.receipe_ingredients);
             mReceipeName.setTypeface(typefaceName);
             mIngredients.setTypeface(typefaceIngredients);
+            view.setOnClickListener(this);
+
         }
 
+        @Override
+        public void onClick(View v) {
+            int adapterPosition = getAdapterPosition();
+            Receipe receipe = mRecepies.get(adapterPosition);
+            mClickHandler.onReceipeClick(receipe);
+        }
     }
 
     @Override
@@ -77,6 +86,10 @@ public class ReceipeAdapter extends RecyclerView.Adapter<ReceipeAdapter.ReceipeA
 
     public ArrayList<Receipe> getValues() {
         return mRecepies;
+    }
+
+    public interface ReceipeAdapterOnClickHandler {
+        void onReceipeClick(Receipe receipe);
     }
 
 }
