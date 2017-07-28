@@ -61,4 +61,5 @@ public class Ingredient implements Parcelable {
     public String getmIngredient() {
         return mIngredient;
     }
+
 }

@@ -6,6 +6,6 @@
     <dimen name="side_margins">10sp</dimen>
     <dimen name="top_margins">10sp</dimen>
     <dimen name="tile_padding">15sp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">1dp</dimen>
+    <dimen name="activity_vertical_margin">1dp</dimen>
 </resources>

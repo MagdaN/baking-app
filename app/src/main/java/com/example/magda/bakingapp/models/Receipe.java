@@ -84,11 +84,11 @@ public class Receipe implements Parcelable {
         return mImage;
     }
 
-    public List<Ingredient> getmIngredients() {
+    public ArrayList<Ingredient> getmIngredients() {
         return mIngredients;
     }
 
-    public List<Step> getmSteps() {
+    public ArrayList<Step> getmSteps() {
         return mSteps;
     }
 

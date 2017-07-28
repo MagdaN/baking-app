@@ -27,7 +27,6 @@ public class ReceipeAdapter extends RecyclerView.Adapter<ReceipeAdapter.ReceipeA
         mClickHandler = clickHandler;
     }
 
-
     public class ReceipeAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TextView mReceipeName;

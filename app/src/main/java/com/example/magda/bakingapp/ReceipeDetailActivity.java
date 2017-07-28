@@ -38,8 +38,6 @@ public class ReceipeDetailActivity extends AppCompatActivity {
                         .add(R.id.receipe_detail_fragment_container, detailFragment)
                         .commit();
 
-
-
             }
         }
 

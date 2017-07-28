@@ -9,4 +9,6 @@
     <color name="colorSecondaryLight">#8559da</color>
     <color name="colorSecondaryTransparent">#508559da</color>
     <color name="colorTextPrimary">#212121</color>
+    <color name="colorDefaultText">#808080</color>
+    <color name="colorLightGray">#F0F0F0</color>
 </resources>
