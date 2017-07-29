@@ -2,6 +2,7 @@ package com.example.magda.bakingapp.utils;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,23 +25,35 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepAdapterVie
 
     public class StepAdapterViewHolder extends RecyclerView.ViewHolder {
 
+        TextView mId;
         TextView mShortDescription;
         TextView mDescription;
 
         public StepAdapterViewHolder(View view) {
             super(view);
+
+            Typeface typefaceName = Typeface.createFromAsset(mContext.getAssets(),"fonts/Slabo27px-Regular.ttf");
+            Typeface typefaceIngredients = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoCondensed-Regular.ttf");
+
             mShortDescription = (TextView) view.findViewById(R.id.step_short_description);
             mDescription = (TextView) view.findViewById(R.id.step_description);
+            mId = (TextView) view.findViewById(R.id.step_id);
+
+            mShortDescription.setTypeface(typefaceIngredients);
+            mDescription.setTypeface(typefaceIngredients);
+            mId.setTypeface(typefaceIngredients);
         }
     }
 
     @Override
     public void onBindViewHolder(StepAdapterViewHolder holder, int position) {
         Step ingredientOnThisPosition = mStepList.get(position);
+        int id = ingredientOnThisPosition.getmId();
         String shortDescription = ingredientOnThisPosition.getMshortDescription();
         String description = ingredientOnThisPosition.getmDescription();
         holder.mShortDescription.setText(shortDescription);
         holder.mDescription.setText(description);
+        holder.mId.setText(Integer.toString(id) + ".");
     }
 
     @Override

@@ -42,7 +42,7 @@ public class MasterListFragment extends Fragment {
         LinearLayoutManager layoutManager =
                 new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
         mReceipeAdapter = new ReceipeAdapter(getContext(), (MainActivity) getActivity());
         mRecyclerView.setAdapter(mReceipeAdapter);
 

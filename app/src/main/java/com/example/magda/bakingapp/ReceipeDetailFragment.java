@@ -44,8 +44,15 @@ public class ReceipeDetailFragment extends Fragment {
         if(mReceipe != null) {
 
             Typeface typefaceName = Typeface.createFromAsset(getContext().getAssets(),"fonts/Slabo27px-Regular.ttf");
+            Typeface typefaceIngredients = Typeface.createFromAsset(getContext().getAssets(), "fonts/RobotoCondensed-Regular.ttf");
             textView.setText(mReceipe.getmName());
             textView.setTypeface(typefaceName);
+
+            TextView ingredientsSection = (TextView) rootView.findViewById(R.id.ingredients_section_heading);
+            TextView stepsSection = (TextView) rootView.findViewById(R.id.steps_section_heading);
+
+            ingredientsSection.setTypeface(typefaceIngredients);
+            stepsSection.setTypeface(typefaceIngredients);
 
             mIngredientsRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_ingredients);
 
@@ -64,7 +71,7 @@ public class ReceipeDetailFragment extends Fragment {
             LinearLayoutManager stepLayoutManager =
                     new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
             mStepsRecyclerView.setLayoutManager(stepLayoutManager);
-            mStepsRecyclerView.setHasFixedSize(true);
+            mStepsRecyclerView.setHasFixedSize(false);
             mStepsRecyclerView.setNestedScrollingEnabled(false);
             mStepsAdapter = new StepAdapter(getContext());
             mStepsRecyclerView.setAdapter(mStepsAdapter);

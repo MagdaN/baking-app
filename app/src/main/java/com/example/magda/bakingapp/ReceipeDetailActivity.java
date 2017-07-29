@@ -29,6 +29,8 @@ public class ReceipeDetailActivity extends AppCompatActivity {
 
                 mReceipe = intentThatStartedThisActivity.getParcelableExtra("RECEIPE");
 
+                getSupportActionBar().setTitle("Receipe");
+
                 ReceipeDetailFragment detailFragment = new ReceipeDetailFragment();
                 detailFragment.setmReceipe(mReceipe);
 

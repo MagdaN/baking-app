@@ -11,17 +11,14 @@
         <item name="android:layout_marginLeft">@dimen/side_margins</item>
         <item name="android:layout_marginRight">@dimen/side_margins</item>
         <item name="android:layout_marginTop">@dimen/top_margins</item>
-        <item name="android:background">@color/colorPrimaryTransparent</item>
         <item name="android:padding">@dimen/tile_padding</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
-    <style name="detail">
+    <style name="base">
+        <item name="android:padding">@dimen/tile_padding</item>
         <item name="android:layout_marginLeft">@dimen/side_margins</item>
         <item name="android:layout_marginRight">@dimen/side_margins</item>
-        <item name="android:layout_marginTop">@dimen/top_margins</item>
-        <item name="android:padding">@dimen/tile_padding</item>
-        <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
     <style name="step">

@@ -4,8 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:id="@+id/receipe_detail_linear_layout"
-    style="@style/detail"
     android:layout_height="match_parent">
+
+    <TextView
+        style="@style/base"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/heading_0"
+        android:layout_marginBottom="@dimen/heading_1_bottom_margin"
+        android:id="@+id/receipe_detail_title"
+        tools:text="Cheesecake"
+        android:layout_height="wrap_content" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -19,18 +27,30 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:textSize="25sp"
-                android:layout_marginBottom="@dimen/hading_1_bottom_margin"
-                android:id="@+id/receipe_detail_title"
-                tools:text="Cheesecake"
+                android:textSize="@dimen/heading_1"
+                android:id="@+id/ingredients_section_heading"
+                style="@style/base"
+                android:text="@string/ingredients"
                 android:layout_height="wrap_content" />
 
             <android.support.v7.widget.RecyclerView
+                android:layout_marginBottom="@dimen/section_bottom_margin"
                 android:id="@+id/recycler_view_ingredients"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="@dimen/heading_1"
+                android:id="@+id/steps_section_heading"
+                style="@style/base"
+                android:layout_marginBottom="@dimen/heading_1_bottom_margin"
+                android:text="@string/steps"
+                android:layout_height="wrap_content" />
+
             <android.support.v7.widget.RecyclerView
+                android:layout_marginBottom="@dimen/section_bottom_margin"
+                style="@style/base"
                 android:id="@+id/recycler_view_steps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

@@ -33,6 +33,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
             super(view);
             Typeface typefaceIngredients = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoCondensed-Regular.ttf");
             mIngredient = (TextView) view.findViewById(R.id.ingredient);
+            mIngredient.setTypeface(typefaceIngredients);
         }
 
     }
@@ -44,6 +45,9 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
         String measure = ingredientOnThisPosition.getmMeasure();
         Float quantity = ingredientOnThisPosition.getmQuantity();
         holder.mIngredient.setText(Float.toString(quantity) + " " + measure + " " + ingredient);
+        if(position%2 == 0){
+            holder.itemView.setBackgroundColor(mContext.getResources().getColor(R.color.colorLightGray));
+        }
     }
 
     @Override

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="hading_1">25sp</dimen>
-    <dimen name="hading_1_bottom_margin">10sp</dimen>
+    <dimen name="heading_0">36sp</dimen>
+    <dimen name="heading_1">25sp</dimen>
+    <dimen name="heading_2">20sp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="heading_1_bottom_margin">10sp</dimen>
     <dimen name="subtext">16sp</dimen>
     <dimen name="side_margins">10sp</dimen>
     <dimen name="top_margins">10sp</dimen>
     <dimen name="tile_padding">15sp</dimen>
     <dimen name="activity_horizontal_margin">1dp</dimen>
     <dimen name="activity_vertical_margin">1dp</dimen>
+    <dimen name="section_bottom_margin">50sp</dimen>
 </resources>
