@@ -62,4 +62,24 @@ public class Step implements Parcelable {
             return new Step[size];
         }
     };
+
+    public int getmId() {
+        return mId;
+    }
+
+    public String getMshortDescription() {
+        return mshortDescription;
+    }
+
+    public String getmDescription() {
+        return mDescription;
+    }
+
+    public String getmVideoURL() {
+        return mVideoURL;
+    }
+
+    public String getmThumbnailURL() {
+        return mThumbnailURL;
+    }
 }

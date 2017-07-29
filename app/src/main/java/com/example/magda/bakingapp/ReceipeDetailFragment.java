@@ -15,14 +15,16 @@ import android.widget.TextView;
 
 import com.example.magda.bakingapp.models.Receipe;
 import com.example.magda.bakingapp.utils.IngredientAdapter;
-import com.example.magda.bakingapp.utils.ReceipeAdapter;
+import com.example.magda.bakingapp.utils.StepAdapter;
 
 public class ReceipeDetailFragment extends Fragment {
 
     private Receipe mReceipe;
     public static final String CURRENT_RECEIPE = "current_receipe";
-    private RecyclerView mRecyclerView;
+    private RecyclerView mIngredientsRecyclerView;
     private IngredientAdapter mIngredientAdapter;
+    private RecyclerView mStepsRecyclerView;
+    private StepAdapter mStepsAdapter;
 
     public ReceipeDetailFragment() {
 
@@ -45,16 +47,29 @@ public class ReceipeDetailFragment extends Fragment {
             textView.setText(mReceipe.getmName());
             textView.setTypeface(typefaceName);
 
-            mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_ingredients);
+            mIngredientsRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_ingredients);
 
-            LinearLayoutManager layoutManager =
+            LinearLayoutManager ingredientLayoutManager =
                     new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-            mRecyclerView.setLayoutManager(layoutManager);
-            mRecyclerView.setHasFixedSize(true);
+            mIngredientsRecyclerView.setLayoutManager(ingredientLayoutManager);
+            mIngredientsRecyclerView.setHasFixedSize(false);
+            mIngredientsRecyclerView.setNestedScrollingEnabled(false);
             mIngredientAdapter = new IngredientAdapter(getContext());
-            mRecyclerView.setAdapter(mIngredientAdapter);
+            mIngredientsRecyclerView.setAdapter(mIngredientAdapter);
 
             mIngredientAdapter.setmIngredientList(mReceipe.getmIngredients());
+
+            mStepsRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_steps);
+
+            LinearLayoutManager stepLayoutManager =
+                    new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+            mStepsRecyclerView.setLayoutManager(stepLayoutManager);
+            mStepsRecyclerView.setHasFixedSize(true);
+            mStepsRecyclerView.setNestedScrollingEnabled(false);
+            mStepsAdapter = new StepAdapter(getContext());
+            mStepsRecyclerView.setAdapter(mStepsAdapter);
+
+            mStepsAdapter.setmStepList(mReceipe.getmSteps());
 
         } else {
             Log.v("Magda", "Title null");
