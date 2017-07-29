@@ -18,12 +18,19 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepAdapterVie
 
     private final Context mContext;
     private ArrayList<Step> mStepList;
+    private final StepAdapterOnClickHandler mClickHandler;
 
-    public StepAdapter(Context context) {
+
+    public StepAdapter(Context context, StepAdapterOnClickHandler clickHandler ) {
         mContext = context;
+        mClickHandler = clickHandler;
     }
 
-    public class StepAdapterViewHolder extends RecyclerView.ViewHolder {
+    public interface StepAdapterOnClickHandler {
+        void onClick(Step step);
+    }
+
+    public class StepAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView mId;
         TextView mShortDescription;
@@ -31,8 +38,6 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepAdapterVie
 
         public StepAdapterViewHolder(View view) {
             super(view);
-
-            Typeface typefaceName = Typeface.createFromAsset(mContext.getAssets(),"fonts/Slabo27px-Regular.ttf");
             Typeface typefaceIngredients = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoCondensed-Regular.ttf");
 
             mShortDescription = (TextView) view.findViewById(R.id.step_short_description);
@@ -42,6 +47,14 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepAdapterVie
             mShortDescription.setTypeface(typefaceIngredients);
             mDescription.setTypeface(typefaceIngredients);
             mId.setTypeface(typefaceIngredients);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int adapterPosition = getAdapterPosition();
+            Step step = mStepList.get(adapterPosition);
+            mClickHandler.onClick(step);
         }
     }
 

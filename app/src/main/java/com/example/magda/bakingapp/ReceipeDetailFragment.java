@@ -1,6 +1,8 @@
 package com.example.magda.bakingapp;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,10 +16,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.magda.bakingapp.models.Receipe;
+import com.example.magda.bakingapp.models.Step;
 import com.example.magda.bakingapp.utils.IngredientAdapter;
 import com.example.magda.bakingapp.utils.StepAdapter;
 
-public class ReceipeDetailFragment extends Fragment {
+public class ReceipeDetailFragment extends Fragment implements StepAdapter.StepAdapterOnClickHandler {
 
     private Receipe mReceipe;
     public static final String CURRENT_RECEIPE = "current_receipe";
@@ -73,16 +76,24 @@ public class ReceipeDetailFragment extends Fragment {
             mStepsRecyclerView.setLayoutManager(stepLayoutManager);
             mStepsRecyclerView.setHasFixedSize(false);
             mStepsRecyclerView.setNestedScrollingEnabled(false);
-            mStepsAdapter = new StepAdapter(getContext());
+            mStepsAdapter = new StepAdapter(getContext(), this);
             mStepsRecyclerView.setAdapter(mStepsAdapter);
 
             mStepsAdapter.setmStepList(mReceipe.getmSteps());
 
-        } else {
-            Log.v("Magda", "Title null");
         }
 
         return rootView;
+    }
+
+    @Override
+    public void onClick(Step step) {
+        Context context = getContext();
+        Class destinationClass = ReceipeDetailActivity.class;
+        Intent intentToStartMovieDetailActivity = new Intent(context, destinationClass);
+        intentToStartMovieDetailActivity.putExtra("step", step);
+        intentToStartMovieDetailActivity.putExtra("receipe_name", mReceipe.getmName());
+        startActivity(intentToStartMovieDetailActivity);
     }
 
     public void setmReceipe(Receipe mReceipe) {
