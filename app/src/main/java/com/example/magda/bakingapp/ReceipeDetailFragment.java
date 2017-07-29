@@ -88,12 +88,12 @@ public class ReceipeDetailFragment extends Fragment implements StepAdapter.StepA
 
     @Override
     public void onClick(Step step) {
-        Context context = getContext();
-        Class destinationClass = ReceipeDetailActivity.class;
-        Intent intentToStartMovieDetailActivity = new Intent(context, destinationClass);
-        intentToStartMovieDetailActivity.putExtra("step", step);
-        intentToStartMovieDetailActivity.putExtra("receipe_name", mReceipe.getmName());
-        startActivity(intentToStartMovieDetailActivity);
+        Context context = getActivity();
+        Class destinationClass = StepActivity.class;
+        Intent intentToStartStepActivity = new Intent(context, destinationClass);
+        intentToStartStepActivity.putExtra("step", step);
+        intentToStartStepActivity.putExtra("receipe_name", mReceipe.getmName());
+        getActivity().startActivity(intentToStartStepActivity);
     }
 
     public void setmReceipe(Receipe mReceipe) {
