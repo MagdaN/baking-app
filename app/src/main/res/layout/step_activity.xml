@@ -13,49 +13,9 @@
         android:id="@+id/step_receipe_name"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/step_detail_fragment_container"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        style="@style/base"
-        android:layout_height="wrap_content">
-
-        <TextView
-            tools:text="1"
-            android:id="@+id/step_view_id"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.1"
-            android:textSize="@dimen/heading_2"/>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="0.9"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-
-            <TextView
-                tools:text="sdfdf dsfdsf dsfdsf"
-                android:id="@+id/step_view_short_description"
-                android:textSize="@dimen/heading_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                tools:text="sdfdf dsfdsf dsfdsf"
-                android:textSize="@dimen/text_size"
-                android:id="@+id/step_view_description"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-        style="@style/base"
-        android:id="@+id/step_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </com.google.android.exoplayer2.ui.SimpleExoPlayerView>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

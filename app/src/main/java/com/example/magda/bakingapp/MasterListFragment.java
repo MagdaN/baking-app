@@ -1,11 +1,13 @@
 package com.example.magda.bakingapp;
 
-import android.os.AsyncTask;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +41,10 @@ public class MasterListFragment extends Fragment {
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_receipes);
 
-        LinearLayoutManager layoutManager =
-                new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        int numberOfColumns = calculateNoOfColumns(getContext());
+
+        GridLayoutManager layoutManager =
+                new GridLayoutManager(getContext(), numberOfColumns);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(false);
         mReceipeAdapter = new ReceipeAdapter(getContext(), (MainActivity) getActivity());
@@ -55,6 +59,13 @@ public class MasterListFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    public static int calculateNoOfColumns(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        int noOfColumns = (int) (dpWidth / 360);
+        return noOfColumns;
     }
 
     @Override

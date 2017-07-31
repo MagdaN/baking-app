@@ -25,18 +25,11 @@ import retrofit2.Call;
 public class MainActivity extends AppCompatActivity implements ReceipeAdapter.ReceipeAdapterOnClickHandler {
 
     private ArrayList<Receipe> mReceipies;
-    private boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if(findViewById(R.id.baking_app_linear_layout) != null) {
-            mTwoPane = true;
-        } else {
-            mTwoPane = false;
-        }
 
         if(savedInstanceState == null) {
             new FetchRecipiesTask().execute();
@@ -46,23 +39,11 @@ public class MainActivity extends AppCompatActivity implements ReceipeAdapter.Re
 
     @Override
     public void onReceipeClick(Receipe receipe) {
-        if(mTwoPane == false) {
-            Bundle b = new Bundle();
-            b.putParcelable("RECEIPE", receipe);
-            final Intent intent = new Intent(this, ReceipeDetailActivity.class);
-            intent.putExtras(b);
-            startActivity(intent);
-        } else {
-            ReceipeDetailFragment newFragment = new ReceipeDetailFragment();
-            newFragment.setmReceipe(receipe);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.receipe_detail_fragment_container,newFragment)
-                    .commit();
-        }
-    }
-
-    public boolean ismTwoPane() {
-        return mTwoPane;
+        Bundle b = new Bundle();
+        b.putParcelable("RECEIPE", receipe);
+        final Intent intent = new Intent(this, ReceipeDetailActivity.class);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
     private class FetchRecipiesTask extends AsyncTask<String, Void, ArrayList<Receipe>> {
@@ -83,15 +64,6 @@ public class MainActivity extends AppCompatActivity implements ReceipeAdapter.Re
                 fragmentManager.beginTransaction()
                         .add(R.id.master_list_fragment, listFragment)
                         .commit();
-
-                if(mTwoPane==true) {
-                    ReceipeDetailFragment detailFragment = new ReceipeDetailFragment();
-                    detailFragment.setmReceipe(mReceipies.get(0));
-
-                    fragmentManager.beginTransaction()
-                        .add(R.id.receipe_detail_fragment_container, detailFragment)
-                        .commit();
-                }
 
             }
         }
