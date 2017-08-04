@@ -12,8 +12,15 @@
         android:id="@+id/step_view_short_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/heading_2"
+        android:textSize="@dimen/heading_1"
         tools:text="sdfdf dsfdsf dsfdsf" />
+
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+        android:layout_marginBottom="@dimen/heading_1_bottom_margin"
+        android:layout_marginTop="15sp"
+        android:id="@+id/step_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.google.android.exoplayer2.ui.SimpleExoPlayerView>
 
     <TextView
         android:id="@+id/step_view_description"
@@ -21,13 +28,6 @@
         android:layout_height="match_parent"
         android:textSize="@dimen/text_size"
         tools:text="sdfdf dsfdsf dsfdsf" />
-
-
-    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-        android:layout_marginTop="20sp"
-        android:id="@+id/step_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.google.android.exoplayer2.ui.SimpleExoPlayerView>
 
 </LinearLayout>
 

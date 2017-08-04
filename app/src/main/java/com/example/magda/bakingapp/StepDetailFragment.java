@@ -1,6 +1,7 @@
 package com.example.magda.bakingapp;
 
 
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -51,11 +52,21 @@ public class StepDetailFragment extends Fragment implements ExoPlayer.EventListe
 
         View rootView = inflater.inflate(R.layout.step_detail_fragment, container, false);
 
+        if(savedInstanceState != null) {
+            if(savedInstanceState.getParcelable(CURRENT_STEP) != null) {
+                mStep = savedInstanceState.getParcelable(CURRENT_STEP);
+            }
+        }
+
+        Typeface typefaceIngredients = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoCondensed-Regular.ttf");
+
         mStepShortDescription = (TextView) rootView.findViewById(R.id.step_view_short_description);
         mStepShortDescription.setText(mStep.getMshortDescription());
+        mStepShortDescription.setTypeface(typefaceIngredients);
 
         mStepDescription = (TextView) rootView.findViewById(R.id.step_view_description);
         mStepDescription.setText(mStep.getmDescription());
+        mStepDescription.setTypeface(typefaceIngredients);
 
         mExoPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.step_video);
 

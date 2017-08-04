@@ -20,7 +20,7 @@ import com.example.magda.bakingapp.models.Step;
 import com.example.magda.bakingapp.utils.IngredientAdapter;
 import com.example.magda.bakingapp.utils.StepAdapter;
 
-public class ReceipeDetailFragment extends Fragment implements StepAdapter.StepAdapterOnClickHandler {
+public class ReceipeDetailFragment extends Fragment {
 
     private Receipe mReceipe;
     public static final String CURRENT_RECEIPE = "current_receipe";
@@ -76,7 +76,7 @@ public class ReceipeDetailFragment extends Fragment implements StepAdapter.StepA
             mStepsRecyclerView.setLayoutManager(stepLayoutManager);
             mStepsRecyclerView.setHasFixedSize(false);
             mStepsRecyclerView.setNestedScrollingEnabled(false);
-            mStepsAdapter = new StepAdapter(getContext(), this);
+            mStepsAdapter = new StepAdapter(getActivity(),(ReceipeDetailActivity)getActivity());
             mStepsRecyclerView.setAdapter(mStepsAdapter);
 
             mStepsAdapter.setmStepList(mReceipe.getmSteps());
@@ -86,21 +86,10 @@ public class ReceipeDetailFragment extends Fragment implements StepAdapter.StepA
         return rootView;
     }
 
-    @Override
-    public void onClick(Step step, int position) {
-        Context context = getActivity();
-        Class destinationClass = StepActivity.class;
-        Intent intentToStartStepActivity = new Intent(context, destinationClass);
-        intentToStartStepActivity.putExtra("step", step);
-        intentToStartStepActivity.putExtra("receipe_name", mReceipe.getmName());
-        intentToStartStepActivity.putExtra("step_list", mReceipe.getmSteps());
-        intentToStartStepActivity.putExtra("position", position);
-        getActivity().startActivity(intentToStartStepActivity);
-    }
-
     public void setmReceipe(Receipe mReceipe) {
         this.mReceipe = mReceipe;
     }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

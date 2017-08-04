@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -72,6 +73,7 @@ public class StepActivity extends AppCompatActivity {
                                     mFragmentManager.beginTransaction()
                                             .replace(R.id.step_detail_fragment_container,previousStepdetailFragment)
                                             .commit();
+                                    break;
                                 case R.id.action_next:
                                     mPosition = mPosition+1;
                                     Step nextStep = mSteplist.get(mPosition);
@@ -80,7 +82,7 @@ public class StepActivity extends AppCompatActivity {
                                     mFragmentManager.beginTransaction()
                                             .replace(R.id.step_detail_fragment_container,nextStepdetailFragment)
                                             .commit();
-
+                                    break;
                             }
                             return true;
                         }

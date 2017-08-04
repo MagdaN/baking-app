@@ -18,7 +18,7 @@ import com.example.magda.bakingapp.utils.ReceipeAdapter;
 import java.util.ArrayList;
 
 
-public class MasterListFragment extends Fragment {
+public class ReceipeListFragment extends Fragment {
 
     private ArrayList<Receipe> mReceipeList;
     private RecyclerView mRecyclerView;
@@ -26,9 +26,7 @@ public class MasterListFragment extends Fragment {
 
     public static final String CURRENT_RECEPEIS = "current_recepeis";
 
-
-
-    public MasterListFragment() {
+    public ReceipeListFragment() {
 
     }
 
