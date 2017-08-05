@@ -18,7 +18,6 @@ import retrofit2.Call;
 public class MainActivity extends AppCompatActivity implements ReceipeAdapter.ReceipeAdapterOnClickHandler {
 
     private ArrayList<Receipe> mReceipies;
-    private ReceipeListFragment mReceipeListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

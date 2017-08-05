@@ -1,6 +1,7 @@
 package com.example.magda.bakingapp;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.magda.bakingapp.models.Step;
 
@@ -66,6 +68,14 @@ public class StepActivity extends AppCompatActivity {
                         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                             switch (item.getItemId()) {
                                 case R.id.action_previous:
+                                    if(mPosition == 0){
+                                        Context context = getApplicationContext();
+                                        CharSequence text = "This is the first step";
+                                        int duration = Toast.LENGTH_SHORT;
+                                        Toast toast = Toast.makeText(context, text, duration);
+                                        toast.show();
+                                        break;
+                                    }
                                     mPosition = mPosition-1;
                                     Step previousStep = mSteplist.get(mPosition);
                                     StepDetailFragment previousStepdetailFragment = new StepDetailFragment();
@@ -75,6 +85,14 @@ public class StepActivity extends AppCompatActivity {
                                             .commit();
                                     break;
                                 case R.id.action_next:
+                                    if(mPosition == mSteplist.size()-1){
+                                        Context context = getApplicationContext();
+                                        CharSequence text = "This is the last step";
+                                        int duration = Toast.LENGTH_SHORT;
+                                        Toast toast = Toast.makeText(context, text, duration);
+                                        toast.show();
+                                        break;
+                                    }
                                     mPosition = mPosition+1;
                                     Step nextStep = mSteplist.get(mPosition);
                                     StepDetailFragment nextStepdetailFragment = new StepDetailFragment();
